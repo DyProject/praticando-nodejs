@@ -18,14 +18,16 @@ app.get("/ola/:nome/:empresa", function(req,res){
     res.send("OI, " + nome + " da empresa " + empresa) 
 })
 
-//Passar parâmetro opcional
+//Query params
+//http://localhost:4000/blog?canal=nomedocanal
 app.get("/blog/:artigo?", function(req,res){
     var artigo = req.params.artigo;
+    var canal = req.query["canal"];
 
-    if(artigo){
-        res.send("Artigo:" + artigo);
+    if(canal){
+        res.send("canal:" + canal);
     }else{
-        res.send("Nenhum artigo passado"); 
+        res.send("Nenhum canal passado"); 
     }
 
     
